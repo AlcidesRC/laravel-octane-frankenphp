@@ -33,17 +33,16 @@ To use this repository you need:
 
 ## Built with
 
-| Type           | Component                                                    | Description                                              |
-| -------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
-| Infrastructure | [Docker](https://www.docker.com/)                            | Containerization platform                                |
-| Service        | [FrankenPHP](https://frankenphp.dev/)                        | The Modern PHP App Server, written in Go                 |
+| Type           | Component                                                              | Description                                              |
+|----------------|------------------------------------------------------------------------|----------------------------------------------------------|
+| Infrastructure | [Docker](https://www.docker.com/)                                      | Containerization platform                                |
+| Service        | [FrankenPHP](https://frankenphp.dev/)                                  | The Modern PHP App Server, written in Go                 |
 | Service        | [Apache Benchmark](https://httpd.apache.org/docs/2.4/programs/ab.html) | A tool for benchmarking HTTP servers                     |
-| Application    | [Laravel](https://laravel.com/)                              | A PHP framework with a robust ecosystem                  |
-| Application    | [Octane](https://laravel.com/docs/12.x/octane#main-content)  | Supercharges your application's performance              |
-| Miscelaneous   | [Make](https://www.gnu.org/software/make/)                   | Allows to execute commands defined on a _Makefile_       |
-| Miscelaneous   | [jq](https://jqlang.github.io/jq/download/)                  | Allows to beautify the Docker inspections in JSON format |
-| Miscelaneous   | [Gum](https://github.com/charmbracelet/gum)                  | Improves the *Makefile* with enhanced CLI widgets        |
-
+| Application    | [Laravel](https://laravel.com/)                                        | A PHP framework with a robust ecosystem                  |
+| Application    | [Octane](https://laravel.com/docs/12.x/octane#main-content)            | Supercharges your application's performance              |
+| Miscelaneous   | [Make](https://www.gnu.org/software/make/)                             | Allows to execute commands defined on a _Makefile_       |
+| Miscelaneous   | [jq](https://jqlang.github.io/jq/download/)                            | Allows to beautify the Docker inspections in JSON format |
+| Miscelaneous   | [Gum](https://github.com/charmbracelet/gum)                            | Improves the *Makefile* with enhanced CLI widgets        |
 
 ------
 
@@ -64,13 +63,13 @@ $ git clone git@github.com:AlcidesRC/laravel-octane-frankenphp.git .
 
 ##### Defined Stages
 
-| Name                        | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| `base-image`                | Used to define the base Docker image                         |
-| `common`                    | Used to define generic variables: `WORKDIR`, `HEALTCHECK`, etc. |
-| `build-development`         | Used to build the development environment                    |
+| Name                        | Description                                                                          |
+| --------------------------- |--------------------------------------------------------------------------------------|
+| `base-image`                | Used to define the base Docker image                                                 |
+| `common`                    | Used to define generic variables: `WORKDIR`, `HEALTCHECK`, etc.                      |
+| `build-development`         | Used to build the development environment                                            |
 | `optimize-php-dependencies` | Used to optimize the PHP dependencies in production by removing the development ones |
-| `build-production`          | Used to build the **production** environment                 |
+| `build-production`          | Used to build the **production** environment                                         |
 
 ###### Defined Stages Hierarchy
 
@@ -87,8 +86,6 @@ stateDiagram-v2
     Common --> BuildDevelopment
     Common --> BuildProduction
 ```
-
-
 
 #### Project Structure
 
@@ -115,20 +112,13 @@ There is a **bind volume** created between the *host* and the container service:
 | --------- | -------------- | ---------------------- |
 | `./src`   | `/app`         | PHP application folder |
 
-
-
 > [!NOTE]
 >
 > Review the `docker-compose.dev.yml` files and adjust the volumes to your convenience.
 
-
-
 > [!IMPORTANT]
 >
 > Remember to rebuild the Docker image if you make any change on `Dockerfile` file.
-
-
-
 
 ##### Available Commands
 
@@ -180,7 +170,6 @@ You can generate/register the **Caddy Authority Certificate** in order to get `S
 > [!IMPORTANT]
 >
 > Remember to reinstall the certificate if you rebuild the container service.
-
 
 #### PHP Application
 
@@ -333,7 +322,6 @@ $ make down
 ```
 
 ------
-
 
 ## Security Vulnerabilities
 
