@@ -1,0 +1,12 @@
+services:
+    app:
+        extends:
+            file: docker-compose.yml
+            service: app
+        build:
+            context: ..
+            dockerfile: docker/Dockerfile
+            target: build-production
+        restart: always
+        ports:
+            - 8000:8000

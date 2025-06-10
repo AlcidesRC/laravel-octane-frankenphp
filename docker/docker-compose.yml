@@ -1,0 +1,14 @@
+volumes:
+    caddy_data:
+    caddy_config:
+
+services:
+    app:
+        container_name: app
+        ports:
+            - 80:80
+            - 443:443
+            - 443:443/udp
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
