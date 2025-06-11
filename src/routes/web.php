@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/empty', function () {
+    return response()->json([]);
+});
+
 Route::post('/post', function (Illuminate\Http\Request $request) {
     return response()->json([
         'param1' => $request->get('param1'),

@@ -18,7 +18,10 @@ RUN apk update && apk add --no-cache \
 # Add PHP extensions
     && install-php-extensions \
     	zip \
+        opcache \
         pcntl
+
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 WORKDIR /app
 
