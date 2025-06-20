@@ -186,6 +186,17 @@ open-website: ## Application: opens the application URL
 	$(call taskDone)
 
 ###
+# APPLICATION
+###
+
+.PHONY: reload
+reload: ## Application: reloads the Application
+	$(call showInfo,"Reload the Application...")
+	@$(DOCKER_EXEC_AS_ROOT) php artisan cache:clear
+	@$(DOCKER_EXEC_AS_ROOT) php artisan octane:reload
+	$(call taskDone)
+
+###
 # APACHE-BENCHMARK
 ###
 
