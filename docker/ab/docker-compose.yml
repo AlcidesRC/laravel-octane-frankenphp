@@ -8,6 +8,6 @@ services:
         restart: unless-stopped
         tty: true
         extra_hosts:
-            - localhost:${WEBSERVER_IPADDRESS}
+            - domain:${WEBSERVER_IPADDRESS}
         volumes:
             - ../../ab-endpoints:/endpoints

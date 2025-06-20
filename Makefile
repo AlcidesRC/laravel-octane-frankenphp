@@ -29,7 +29,7 @@ HOST_GROUP_NAME := $(shell id --group --name)
 
 #---
 
-WEBSITE_URL = https://localhost
+WEBSITE_URL = https://localhost:8000
 
 #---
 
@@ -37,6 +37,8 @@ DOCKER_COMPOSE_APP = docker compose --file docker/docker-compose.yml --file dock
 DOCKER_COMPOSE_AB  = docker compose --file docker/ab/docker-compose.yml
 
 DOCKER_RUN_AS_ROOT = $(DOCKER_COMPOSE_APP) run -it --rm $(SERVICE_APP)
+
+DOCKER_EXEC_AS_ROOT = $(DOCKER_COMPOSE_APP) exec -it $(SERVICE_APP)
 
 #---
 
@@ -110,7 +112,7 @@ welcome:
 
 .PHONY: help
 help: ensure_gum_is_installed welcome
-	$(eval OPTION=$(shell gum choose --height 20 --header "Choose a command..." --selected "exit" "exit" "set-environment" "build" "up" "down" "restart" "logs" "inspect" "install-caddy-certificate" "open-website" "shell" "test-stress"))
+	$(eval OPTION=$(shell gum choose --height 20 --header "Choose a command..." --selected "exit" "exit" "set-environment" "build" "up" "down" "restart" "logs" "inspect" "shell" "install-caddy-certificate" "open-website" "test-stress"))
 	@$(MAKE) ${OPTION}
 
 ###
@@ -156,7 +158,7 @@ inspect:
 .PHONY: shell
 shell:
 	$(call showInfo,"Establishing a shell terminal with [ $(SERVICE_APP) ] service...")
-	@$(DOCKER_RUN_AS_ROOT) bash
+	@$(DOCKER_EXEC_AS_ROOT) bash
 	$(call taskDone)
 
 ###
