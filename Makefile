@@ -29,7 +29,7 @@ HOST_GROUP_NAME := $(shell id --group --name)
 
 #---
 
-WEBSITE_URL = https://localhost:8000
+WEBSITE_URL = http://localhost:8000
 
 #---
 
@@ -112,7 +112,7 @@ welcome:
 
 .PHONY: help
 help: ensure_gum_is_installed welcome
-	$(eval OPTION=$(shell gum choose --height 20 --header "Choose a command..." --selected "exit" "exit" "set-environment" "build" "up" "down" "restart" "logs" "inspect" "shell" "install-caddy-certificate" "open-website" "test-stress"))
+	$(eval OPTION=$(shell gum choose --height 20 --header "Choose a command..." --selected "exit" "exit" "set-environment" "build" "up" "down" "restart" "logs" "inspect" "shell" "install-caddy-certificate" "open-website" "test-stress" "reload"))
 	@$(MAKE) ${OPTION}
 
 ###

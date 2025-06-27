@@ -133,7 +133,7 @@ A *Makefile* is provided with following commands:
 ║                                                                                ║
 ╚════════════════════════════════════════════════════════════════════════════════╝
 🔹 ENVIRONMENT ...  dev 
-🔹 DOMAIN URL ....  https://localhost 
+🔹 DOMAIN URL ....  http://localhost:8000 
 🔹 SERVICE(S) ....  app 
 
 Choose a command...         
@@ -148,7 +148,8 @@ Choose a command...
   install-caddy-certificate 
   open-website              
   shell                     
-  test-stress               
+  test-stress
+  reload               
                             
 ←↓↑→ navigate • enter submit
 ```
@@ -192,7 +193,7 @@ $ make set-environment
 ║                                                                                ║
 ╚════════════════════════════════════════════════════════════════════════════════╝
 🔹 ENVIRONMENT ...  dev 
-🔹 DOMAIN URL ....  https://localhost 
+🔹 DOMAIN URL ....  http://localhost:8000 
 🔹 SERVICE(S) ....  app 
 
 Setting up Makefile environment...
@@ -265,7 +266,7 @@ $ make set-environment
 ║                                                                                ║
 ╚════════════════════════════════════════════════════════════════════════════════╝
 🔹 ENVIRONMENT ...  dev 
-🔹 DOMAIN URL ....  https://localhost 
+🔹 DOMAIN URL ....  http://localhost:8000
 🔹 SERVICE(S) ....  app 
 
 Setting up Makefile environment...
